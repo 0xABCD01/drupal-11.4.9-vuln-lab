@@ -1,0 +1,8 @@
+name: 'Vulnerability Lab: Navigation (SA-CORE-2026-016)'
+type: module
+description: 'Reproduces SA-CORE-2026-016 / CVE-2026-108514: the Navigation module toolbar tooltip re-parses attacker-controlled attribute values as HTML, producing stored DOM XSS.'
+package: 'Vulnerability Lab'
+core_version_requirement: ^11.4
+dependencies:
+  - drupal:navigation
+  - drupal:menu_link_content

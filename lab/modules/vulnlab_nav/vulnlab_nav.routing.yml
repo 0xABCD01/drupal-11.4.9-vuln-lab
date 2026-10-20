@@ -1,0 +1,6 @@
+vulnlab_nav.tooltip:
+  path: '/vulnlab/tooltip'
+  defaults:
+    _controller: '\Drupal\vulnlab_nav\Controller\TooltipController::render'
+  requirements:
+    _access: 'TRUE'

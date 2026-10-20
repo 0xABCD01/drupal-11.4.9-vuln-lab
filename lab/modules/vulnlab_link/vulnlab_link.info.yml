@@ -1,0 +1,8 @@
+name: 'Vulnerability Lab: Link (SA-CORE-2026-015)'
+type: module
+description: 'Reproduces SA-CORE-2026-015 / CVE-2026-108515: the Link module attribute sanitizer does not strip htmx (hx-* / data-hx-*) event-handler attributes, so a link can carry inline JavaScript.'
+package: 'Vulnerability Lab'
+core_version_requirement: ^11.4
+dependencies:
+  - drupal:link
+  - drupal:field

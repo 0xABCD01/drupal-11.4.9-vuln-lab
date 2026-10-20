@@ -1,0 +1,6 @@
+vulnlab_field_ui.public_rce:
+  path: '/vulnlab/field-ui-rce'
+  defaults:
+    _controller: '\Drupal\vulnlab_field_ui\Controller\PublicRceController::render'
+  requirements:
+    _access: 'TRUE'

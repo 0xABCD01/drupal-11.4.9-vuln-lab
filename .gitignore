@@ -1,0 +1,17 @@
+# The Drupal project the lab runs against (populated by lab/scripts/fetch-drupal.sh).
+/drupal/
+
+# Local caches and tooling.
+.cache/
+lab/bin/
+
+# Python.
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editor / OS noise.
+.DS_Store
+*.swp
+.idea/
+.vscode/

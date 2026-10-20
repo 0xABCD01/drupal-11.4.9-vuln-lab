@@ -1,0 +1,8 @@
+name: 'Vulnerability Lab: Field UI (SA-CORE-2026-014)'
+type: module
+description: 'Reproduces the SA-CORE-2026-014 / CVE-2026-108097 primitive: Drupal core executes a render-array supplied "#region_callback" through call_user_func_array() without validation.'
+package: 'Vulnerability Lab'
+core_version_requirement: ^11.4
+dependencies:
+  - drupal:field_ui
+  - drupal:node
