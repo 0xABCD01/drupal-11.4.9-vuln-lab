@@ -32,6 +32,7 @@ or pass it as the first argument.
 | Script | Advisory | What it does |
 |--------|----------|--------------|
 | `f1_field_ui_rce.php` | SA-CORE-2026-014 | Calls the real `FieldUiTable::tablePreRender()` with a row whose `#region_callback` is chosen by the "attacker", and shows the chosen callable running. |
+| `f1_gadget_chain.php` | SA-CORE-2026-014 | Full chain: stock PEAR `System::cat` / `System::rm` write a payload and a permissive `.htaccess`, and the payload executes over HTTP. |
 | `f2_attribute_xss.php` | SA-CORE-2026-015 | Runs the real `AttributeXss::sanitizeAttributes()` over a table of attribute names, and contrasts it with the upstream `Xss::attributes()`, which *is* hardened. |
 | `f3_tooltip_xss.js` | SA-CORE-2026-016 | Extracts the `tooltipWrapper()` implementation out of the target's `tooltip.js` and shows the HTML-injection and attribute-injection primitives. |
 

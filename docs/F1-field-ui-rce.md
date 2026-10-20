@@ -41,6 +41,10 @@ built from form values, so its contents are attacker-influenceable.
 
 Whatever ends up in `#region_callback` is what PHP executes.
 
+> This document covers the sink and its reachability. For the full chain that
+> turns it into executed PHP — stock PEAR gadgets, the `.htaccess` bypass, and
+> the HTTP proof — see [F1-gadget-chain.md](F1-gadget-chain.md).
+
 ## 2. Why a render-array callback is a dangerous thing to execute
 
 Drupal render arrays routinely carry PHP callables in `#`-prefixed properties

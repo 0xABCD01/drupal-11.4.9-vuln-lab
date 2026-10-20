@@ -22,6 +22,10 @@ The lab is written so it cannot easily be turned into a weapon:
 * The F1 gadget registry (`vulnlab_field_ui`) exposes only `marker`,
   `exec` (three allow-listed commands: `id`, `whoami`, `uname -a`) and
   `sleep`. There is **no** arbitrary-command or arbitrary-callable endpoint.
+* `lab/standalone/f1_gadget_chain.php` demonstrates the full
+  write -> `.htaccess` -> RCE chain. It confines every path to the lab's own
+  Drupal root, backs up `sites/default/files/.htaccess`, and restores it on
+  `--cleanup`. `lab/scripts/f1-chain.sh` always cleans up, even on failure.
 * The F2 widget (`vulnlab_link`) only writes attributes the editor typed;
   it does not inject anything on its own.
 * The F3 controller only reflects a value into a `data-drupal-tooltip`

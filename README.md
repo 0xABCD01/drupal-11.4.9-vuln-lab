@@ -55,6 +55,15 @@ known exploit path does not require authentication."*
 
 The lab module `vulnlab_field_ui` plays the role of that contributed module.
 
+**Full gadget chain.** The sink is not limited to "a callable runs". Stock
+vendor code provides file read/write/delete primitives that consume row
+content, and a per-directory `.htaccess` rewrite turns a file write into PHP
+execution. The end-to-end chain — stock PEAR `System::cat` / `System::rm`,
+then `RewriteEngine On`, then a payload over HTTP — is documented in
+[docs/F1-gadget-chain.md](docs/F1-gadget-chain.md) and reproducible with
+`./lab/scripts/f1-chain.sh`. It is reproduced in the lab, not against any
+third-party system.
+
 ### F2 — htmx event handlers survive the link sanitizer (High)
 
 `core/modules/link/src/AttributeXss.php:41-48`
@@ -277,14 +286,15 @@ docker-compose.yml             db + web + one-shot provisioning
 Makefile                       convenience targets
 docs/
   F1-field-ui-rce.md           deep dive: root cause, reachability, impact
+  F1-gadget-chain.md           the full chain: PEAR gadgets -> .htaccess -> RCE
   F2-link-htmx-xss.md
   F3-navigation-tooltip-xss.md
   methodology.md               how the findings were derived
 lab/
   modules/                     the three lab modules (vulnlab_*)
   poc/                         end-to-end PoCs (Python, stdlib only)
-  standalone/                  zero-dependency PoCs (PHP / Node)
-  scripts/                     fetch-drupal.sh, provision.sh
+  standalone/                  zero-dependency PoCs (PHP / Node), incl. the gadget chain
+  scripts/                     fetch-drupal.sh, provision.sh, f1-chain.sh
 ```
 
 ---
